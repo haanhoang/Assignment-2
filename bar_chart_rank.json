@@ -1,0 +1,42 @@
+{
+    "config": {
+        "view": {
+            "stroke": null
+        }
+    },
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 400,
+    "title": "Top Gambling Expenditure by Country in 2017.",
+    "data": {
+        "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_bar_chart_rank.csv"
+    },
+    "layer": [
+        {
+            "mark": "bar",
+            "encoding": {
+                "y": {
+                    "field": "Country",
+                    "type": "nominal",
+                    "sort": "-x",
+                    "title": null,
+                    "axis": {
+                        "domain": false, 
+                        "grid": false, 
+                        "ticks": false 
+                    }
+                },
+                "x": {
+                    "field": "Expenditure",
+                    "type": "quantitative",
+                    "title": "Expenditure per capita (in $USD)",
+                    "axis": {
+                        "domain": false,
+                        "grid": false,
+                        "ticks": false
+                    }
+                }
+            }
+        }
+    ]
+}
