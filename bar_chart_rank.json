@@ -5,8 +5,8 @@
         }
     },
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": "container",
-    "height": 400,
+    "width": 200,
+    "height": 200,
     "title": "Top Gambling Expenditure by Country in 2017.",
     "data": {
         "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_bar_chart_rank.csv"
