@@ -1,0 +1,133 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 200,
+    "title": "Amount lost by gamblers in each LGA.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_map_and_bump.csv"
+    },
+    "params": [
+      {
+        "name": "region_selector",
+        "bind": {
+          "input": "select",
+          "options": [null, "Metro", "Country"],
+          "labels": ["Show All", "Metro", "Country"], "name": "Select LGA type: "
+        }
+      }, {
+        "name": "year_filter",
+        "value": 2017,
+        "bind": {
+            "input": "range",
+            "min": 2017,
+            "max": 2022,
+            "step": 1,
+            "name": "Year: "
+        }
+      }
+    ],
+    "transform": [
+      {"filter": "region_selector == null || datum.Region == region_selector"}, {"filter": "datum.Year == year_filter"}
+    ],
+    "encoding": {
+      "x": {
+        "field": "Number of machine per 1000 adults",
+        "type": "quantitative",
+        "title": "Number of gaming machines per 1000 adults"
+      },
+      "y": {"field": "Adults per venue", "type": "quantitative"}
+    },
+    "layer": [
+      {
+        "params": [
+          {
+            "name": "region_highlight",
+            "select": {"type": "point", "fields": ["Region"]},
+            "bind": "legend"
+          }
+        ],
+        "mark": "circle",
+        "encoding": {
+          "size": {"field": "Expenditure per adult", "type": "quantitative"},
+          "color": {"field": "Region", "type": "nominal"},
+          "opacity": {
+            "condition": {"param": "region_highlight", "value": 0.6},
+            "value": 0.2
+          },
+          "tooltip": [
+            {"field": "LGA Name", "type": "nominal", "title": "LGA Name"},
+            {
+              "field": "Expenditure per adult",
+              "type": "quantitative",
+              "title": "$ Gambled per Adult",
+              "format": ".2f"
+            },
+            {
+              "field": "Number of machine per 1000 adults",
+              "type": "quantitative",
+              "title": "Number of machine per 1000 adults",
+              "format": ".2f"
+            },
+            {
+              "field": "Adults per venue",
+              "type": "quantitative",
+              "title": "Adults per venue",
+              "format": ".2f"
+            },
+            {
+                "field": "Year",
+                "type": "quantitative",
+                "title": "Year"
+              }
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "middle",
+          "dx": -12,
+          "fontSize": 11.5,
+          "fontStyle": "italic"
+        },
+        "encoding": {
+          "text": {"field": "LGA Name", "type": "nominal"},
+          "color": {"value": "black"},
+          "opacity": {
+            "condition": {
+              "test": "datum['LGA Name'] == 'Whitehorse'",
+              "value": 1
+            },
+            "value": 0
+          },
+          "tooltip": [
+            {"field": "LGA Name", "type": "nominal", "title": "LGA Name"},
+            {
+              "field": "Expenditure per adult",
+              "type": "quantitative",
+              "title": "$ Gambled per Adult",
+              "format": ".2f"
+            },
+            {
+              "field": "Number of machine per 1000 adults",
+              "type": "quantitative",
+              "title": "Number of machine per 1000 adults",
+              "format": ".2f"
+            },
+            {
+              "field": "Adults per venue",
+              "type": "quantitative",
+              "title": "Adults per venue",
+              "format": ".2f"
+            },
+            {
+                "field": "Year",
+                "type": "quantitative",
+                "title": "Year"
+              }
+          ]
+        }
+      }
+    ]
+  }
