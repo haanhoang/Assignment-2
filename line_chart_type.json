@@ -1,0 +1,33 @@
+{
+    "config": {"view": {"stroke": null}},
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 800,
+    "data": {
+      "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_line_chart_gambling_type.csv"
+    },
+    "params": [
+      {
+        "name": "type_highlight",
+        "select": {"type": "point", "fields": ["Type"]},
+        "bind": "legend"
+      }
+    ],
+    "transform": [
+      {
+        "calculate": "if(datum.Type === 'Gaming Machines', 0, if(datum.Type === 'Wagering', 1, if(datum.Type === 'Casino', 3, if(datum.Type === 'Lotteries', 4, if(datum.Type === 'Keno', 5, 6)))))",
+        "as": "typeOrder"
+      }
+    ],
+    "mark": "area",
+    "encoding": {
+      "x": {"field": "Year", "type": "quantitative"},
+      "y": {"aggregate": "sum", "field": "Expenditure", "type": "quantitative"},
+      "color": {"field": "Type"},
+      "order": {"field": "typeOrder"},
+      "opacity": {
+            "condition": {"param": "type_highlight", "value": 1},
+            "value": 0.2
+          }
+    }
+  }
