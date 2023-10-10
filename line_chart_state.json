@@ -2,14 +2,26 @@
     "config": {
         "view": {
             "stroke": null
-        }
+        },
+        "background": "transparent"
     },
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container",
     "height": 200,
     "data": {
         "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_line_chart_gambling_state.csv"
-    },
+    },"params": [
+        {
+          "name": "state_highlight",
+          "select": {
+            "type": "point",
+            "fields": [
+              "State"
+            ]
+          },
+          "bind": "legend"
+        }
+      ],
     "mark": "area",
     "encoding": {
         "x": {
@@ -26,6 +38,13 @@
             "scale": {
                 "scheme": "category20b"
             }
+        },
+        "opacity": {
+          "condition": {
+            "param": "state_highlight",
+            "value": 1
+          },
+          "value": 0.2
         }
     }
 }

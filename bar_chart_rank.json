@@ -2,7 +2,8 @@
     "config": {
         "view": {
             "stroke": null
-        }
+        },
+        "background": "transparent"
     },
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container",
@@ -21,9 +22,9 @@
                     "sort": "-x",
                     "title": null,
                     "axis": {
-                        "domain": false, 
-                        "grid": false, 
-                        "ticks": false 
+                        "domain": false,
+                        "grid": false,
+                        "ticks": false
                     }
                 },
                 "x": {
