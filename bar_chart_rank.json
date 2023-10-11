@@ -7,14 +7,16 @@
     },
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container",
-    "height": 200,
-    "title": "Top Gambling Expenditure by Country in 2017.",
+    "height": 350,
+    "title": {"text": "Top Gambling Expenditure by Country in 2017.", "align": "center"},
     "data": {
         "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_bar_chart_rank.csv"
     },
     "layer": [
         {
             "mark": "bar",
+            "transform": [{"calculate": "'The average person lost $' + datum['Expenditure'] + ' USD to gambling in ' + datum['Country'] + ' in 2017.'",
+            "as": "tool"}],
             "encoding": {
                 "y": {
                     "field": "Country",
@@ -36,7 +38,7 @@
                         "grid": false,
                         "ticks": false
                     }
-                }
+                }, "color": {"value": "#6cb964"}, "tooltip": [{"field":"tool"}]
             }
         }
     ]

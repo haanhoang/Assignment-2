@@ -1,49 +1,216 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": "container",
-    "height": 600,
     "params": [
-        {
-            "name": "region_selector",
-            "bind": {
-                "input": "select",
-                "options": [
-                    null,
-                    "Metro",
-                    "Country"
-                ],
-                "labels": [
-                    "Show All",
-                    "Metro",
-                    "Country"
-                ],
-                "name": "Select LGA type: "
-            }
-        },
-        {
-            "name": "year_filter",
-            "value": 2017,
-            "bind": {
-                "input": "range",
-                "min": 2017,
-                "max": 2022,
-                "step": 1,
-                "name": "Year: "
-            }
+      {
+        "name": "region_selector",
+        "bind": {
+          "input": "select",
+          "options": [null, "Metro", "Country"],
+          "labels": ["Show All", "Metro", "Country"],
+          "name": "Select LGA type: "
         }
+      },
+      {
+        "name": "year_filter",
+        "value": 2017,
+        "bind": {
+          "input": "range",
+          "min": 2017,
+          "max": 2022,
+          "step": 1,
+          "name": "Year: "
+        }
+      },
+      {
+        "name": "zoom_level",
+        "value": 30000,
+        "bind": {
+          "input": "range",
+          "min": 3500,
+          "max": 60000,
+          "step": 100,
+          "name": "Zoom: "
+        }
+      }
     ],
     "data": {
-        "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_map_and_bump.csv"
+      "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_map_and_bump.csv"
     },
     "transform": [
-        {
-            "filter": "region_selector == null || datum.Region == region_selector"
-        },
-        {
-            "filter": "datum.Year == year_filter"
-        }
+      {"filter": "region_selector == null || datum.Region == region_selector"},
+      {"filter": "datum.Year == year_filter"}
     ],
     "vconcat": [
-        
+      {"height": 600,
+      "width": "container",
+        "title": {"text": "Expenditure per Capita"},
+        "projection": {"type": "equirectangular"},
+        "layer": [
+          {
+            "data": {
+              "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/mapData/surrounding_state.json",
+              "format": {
+                "type": "topojson",
+                "feature": "ne_10m_admin_1_states_provinces"
+              }
+            },
+            "mark": {"type": "geoshape", "fill": "#dbdbdb", "stroke": "black"}
+          },
+          {
+            "data": {
+              "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/mapData/vic_lga.json",
+              "format": {"type": "topojson", "feature": "vic_lga"}
+            },
+            "transform": [
+              {
+                "calculate": "'No data recorded for ' + datum.properties.ABB_NAME",
+                "as": "tool"
+              }
+            ],
+            "mark": {"type": "geoshape", "fill": "#afaeae", "stroke": "gray"},
+            "encoding": {
+              "tooltip": [
+                {
+                  "field": "properties.ABB_NAME",
+                  "type": "nominal",
+                  "title": "Local Government Area"
+                },
+                {"field": "year_filter", "title": "Year"},
+                {"field": "tool", "title": "$ Lost per Adult"}
+              ]
+            }
+          },
+          {
+            "data": {
+              "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_map_and_bump.csv"
+            },
+            "transform": [
+              {
+                "lookup": "LGA",
+                "from": {
+                  "data": {
+                    "url": "https://raw.githubusercontent.com/haanhoang/FIT3179_Studio/main/vic_lga.json",
+                    "format": {"type": "topojson", "feature": "vic_lga"}
+                  },
+                  "key": "properties.ABB_NAME"
+                },
+                "as": "geo"
+              },
+              {"filter": "datum.Year == year_filter"},{"filter": "region_selector == null || datum.Region == region_selector"},
+              {"filter": "datum.ExpenditurePerAdult > 0"}
+            ],
+            "mark": {"type": "geoshape", "stroke": "gray"},
+            "encoding": {
+              "shape": {"field": "geo", "type": "geojson"},
+              "color": {
+                "field": "ExpenditurePerAdult",
+                "type": "quantitative",
+                "title": "Price"
+              },
+              "tooltip": [
+                {
+                  "field": "LGA",
+                  "type": "nominal",
+                  "title": "Local Government Area"
+                },
+                {"field": "Year", "title": "Year"},
+                {"field": "ExpenditurePerAdult", "title": "$ Lost per Adult"}
+              ]
+            }
+          }
+        ]
+      },
+      {"width":"container",
+        "encoding": {
+          "x": {
+            "field": "NumberOfMachinePer1000Adults",
+            "type": "quantitative",
+            "title": "Number of gaming machines per 1000 adults"
+          },
+          "y": {"field": "AdultsPerVenue", "type": "quantitative"}
+        },
+        "layer": [
+          {
+            "params": [
+              {
+                "name": "region_highlight",
+                "select": {"type": "point", "fields": ["Region"]},
+                "bind": "legend"
+              }
+            ],
+            "mark": "circle",
+            "encoding": {
+              "size": {"field": "ExpenditurePerAdult", "type": "quantitative"},
+              "color": {"field": "Region", "type": "nominal"},
+              "opacity": {
+                "condition": {"param": "region_highlight", "value": 0.6},
+                "value": 0.2
+              },
+              "tooltip": [
+                {"field": "LGA Name", "type": "nominal", "title": "LGA Name"},
+                {
+                  "field": "ExpenditurePerAdult",
+                  "type": "quantitative",
+                  "title": "$ Gambled per Adult",
+                  "format": ".2f"
+                },
+                {
+                  "field": "NumberOfMachinePer1000Adults",
+                  "type": "quantitative",
+                  "title": "Number of machine per 1000 adults",
+                  "format": ".2f"
+                },
+                {
+                  "field": "AdultsPerVenue",
+                  "type": "quantitative",
+                  "title": "Adults per venue",
+                  "format": ".2f"
+                },
+                {"field": "Year", "type": "quantitative", "title": "Year"}
+              ]
+            }
+          },
+          {
+            "mark": {
+              "type": "text",
+              "align": "right",
+              "baseline": "middle",
+              "dx": -12,
+              "fontSize": 11.5,
+              "fontStyle": "italic"
+            },
+            "encoding": {
+              "text": {"field": "LGA", "type": "nominal"},
+              "color": {"value": "black"},
+              "opacity": {
+                "condition": {"test": "datum['LGA'] == 'Whitehorse'", "value": 1},
+                "value": 0
+              },
+              "tooltip": [
+                {"field": "LGA", "type": "nominal", "title": "LGA Name"},
+                {
+                  "field": "ExpenditurePerAdult",
+                  "type": "quantitative",
+                  "title": "$ Gambled per Adult",
+                  "format": ".2f"
+                },
+                {
+                  "field": "NumberOfMachinePer1000Adults",
+                  "type": "quantitative",
+                  "title": "Number of machine per 1000 adults",
+                  "format": ".2f"
+                },
+                {
+                  "field": "AdultsPerVenue",
+                  "type": "quantitative",
+                  "title": "Adults per venue",
+                  "format": ".2f"
+                },
+                {"field": "Year", "type": "quantitative", "title": "Year"}
+              ]
+            }
+          }
+        ]
+      }
     ]
-}
+  }

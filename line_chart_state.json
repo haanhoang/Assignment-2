@@ -1,50 +1,75 @@
 {
-    "config": {
-        "view": {
-            "stroke": null
-        },
-        "background": "transparent"
+  "config": {
+    "view": {
+      "stroke": null
     },
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": "container",
-    "height": 200,
-    "data": {
-        "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_line_chart_gambling_state.csv"
-    },"params": [
-        {
-          "name": "state_highlight",
-          "select": {
-            "type": "point",
-            "fields": [
-              "State"
-            ]
-          },
-          "bind": "legend"
-        }
-      ],
-    "mark": "area",
-    "encoding": {
-        "x": {
-            "field": "Year",
-            "type": "quantitative"
-        },
-        "y": {
-            "aggregate": "sum",
-            "field": "Expenditure",
-            "type": "quantitative"
-        },
-        "color": {
-            "field": "State",
-            "scale": {
-                "scheme": "category20b"
-            }
-        },
-        "opacity": {
-          "condition": {
-            "param": "state_highlight",
-            "value": 1
-          },
-          "value": 0.2
-        }
+    "background": "transparent"
+  },
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 350,
+  "title": {
+    "text": "Australian State's Gambling Expenditure",
+    "align": "center"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_line_chart_gambling_state.csv"
+  },
+  "params": [
+    {
+      "name": "state_highlight",
+      "select": {
+        "type": "point",
+        "fields": [
+          "State"
+        ]
+      },
+      "bind": "legend"
     }
+  ],
+  "transform": [
+    {
+      "calculate": "if(datum.State === 'NSW', 0, if(datum.State === 'VIC', 1, if(datum.State === 'QLD', 2, if(datum.State === 'SA', 3, if(datum.State === 'WA', 4, if(datum.State === 'NT', 5, if(datum.State === 'TAS', 6, 7)))))))",
+      "as": "typeOrder"
+    }
+  ],
+  "mark": "area",
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "axis": {
+        "domain": false,
+        "grid": false,
+        "ticks": false
+      }
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "Expenditure",
+      "type": "quantitative",
+      "title": "Expenditure (in Million $AUD)",
+      "axis": {
+        "domain": false,
+        "grid": false,
+        "ticks": false
+      }
+    },
+    "color": {
+      "field": "State",
+      "scale": {
+        "scheme": "category20b"
+      }
+    },
+    "order": {
+      "field": "typeOrder"
+    },
+    "opacity": {
+      "condition": {
+        "param": "state_highlight",
+        "value": 1
+      },
+      "value": 0.2
+    }, "tooltip":[{"field": "State"}, {"field":"Expenditure", "title":"Expenditure (in Million $AUD)", "format":".2f"}]
+  }
 }
