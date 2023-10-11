@@ -1,0 +1,104 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "config": {
+        "view": {
+          "stroke": null
+        },
+        "background": "transparent"
+      },
+    "width": "container",
+    "height": 600,
+    "title": "Amount gambled per adult person in VIC's Local Government Area in 2022.",
+    "projection": {
+        "type": "equirectangular"
+    },
+    "layer": [
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/Map%20Data/surrounding_state.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_10m_admin_1_states_provinces"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "#dbdbdb",
+                "stroke": "black"
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/Map%20Data/vic_lga.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "vic_lga"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "#afaeae",
+                "stroke": "gray"
+            }, 
+            "encoding": {
+                "tooltip": [
+                    {
+                        "field": "properties.ABB_NAME",
+                        "type": "nominal",
+                        "title": "Local Government Area"
+                    },
+                    {
+                        "field": "Expenditure",
+                        "type": "quantitative",
+                        "title": "$ Spent per Adult"
+                    }
+                ]
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/Map%20Data/vic_lga.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "vic_lga"
+                }
+            },
+            "transform": [
+                {
+                    "lookup": "properties.ABB_NAME",
+                    "from": {
+                        "data": {
+                            "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_map_and_bump.csv"
+                        },
+                        "key": "LGA Name",
+                        "fields": [
+                            "Expenditure per adult"
+                        ]
+                    }
+                }
+            ],
+            "mark": {
+                "type": "geoshape", "stroke":"gray"
+            },
+            "encoding": {
+                "color":{
+                    "field": "Expenditure per adult",
+                    "type": "quantitative", 
+                    "legend": {"title": "Dollar gambled per Adult"}
+                },
+                "tooltip": [
+                    {
+                        "field": "properties.ABB_NAME",
+                        "type": "nominal",
+                        "title": "Local Government Area"
+                    },
+                    {
+                        "field": "Expenditure per adult",
+                        "type": "quantitative",
+                        "title": "$ Gambled per Adult"
+                    }
+                ]
+            }
+        }
+    ]
+}
