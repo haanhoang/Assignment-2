@@ -28,7 +28,7 @@
     ],
     "transform": [
       {"filter": "region_selector == null || datum.Region == region_selector"}, {"filter": "datum.Year == year_filter"}
-    ],
+    ], 
     "encoding": {
       "x": {
         "field": "Number of machine per 1000 adults",

@@ -1,0 +1,49 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 600,
+    "params": [
+        {
+            "name": "region_selector",
+            "bind": {
+                "input": "select",
+                "options": [
+                    null,
+                    "Metro",
+                    "Country"
+                ],
+                "labels": [
+                    "Show All",
+                    "Metro",
+                    "Country"
+                ],
+                "name": "Select LGA type: "
+            }
+        },
+        {
+            "name": "year_filter",
+            "value": 2017,
+            "bind": {
+                "input": "range",
+                "min": 2017,
+                "max": 2022,
+                "step": 1,
+                "name": "Year: "
+            }
+        }
+    ],
+    "data": {
+        "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_map_and_bump.csv"
+    },
+    "transform": [
+        {
+            "filter": "region_selector == null || datum.Region == region_selector"
+        },
+        {
+            "filter": "datum.Year == year_filter"
+        }
+    ],
+    "vconcat": [
+        
+    ]
+}
