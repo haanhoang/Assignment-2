@@ -1,4 +1,4 @@
-﻿LGA Name,Region,Year,Net Expenditure,Adult population,Adults per venue,Number of machine per 1000 adults,Expenditure per adult,Unemployment rate
+﻿LGA,Region,Year,NetExpenditure,AdultPopulation,AdultsPerVenue,NumberOfMachinePer1000Adults,ExpenditurePerAdult,UnemploymentRate
 Whittlesea,Metro,2017,106994642.8,157370.3199,15737.03199,4.390916918,679.8908639,0.073106417
 Nillumbik,Metro,2017,8298522.61,48614.18298,24307.09149,1.851311582,170.701678,0.026013032
 Ararat,Country,2017,4921777.36,8712.079782,4356.039891,10.1009176,564.9371313,0.054843305
