@@ -52,7 +52,7 @@
       }
     },
     "color": {
-      "field": "Type"
+      "field": "Type", "scale":{"scheme":"turbo"}
     },
     "order": {
       "field": "typeOrder"

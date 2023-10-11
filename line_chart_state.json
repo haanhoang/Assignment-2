@@ -58,7 +58,7 @@
     "color": {
       "field": "State",
       "scale": {
-        "scheme": "category20b"
+        "scheme": "sinebow"
       }
     },
     "order": {
