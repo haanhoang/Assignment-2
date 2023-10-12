@@ -8,6 +8,10 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "height": 350,
+  "title": {
+    "text": "Australian Gambling Expenditure by Type.",
+    "align": "center"
+  },
   "data": {
     "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_line_chart_gambling_type.csv"
   },

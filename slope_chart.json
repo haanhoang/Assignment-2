@@ -1,12 +1,47 @@
-{
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {
-      "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_slope_chart.csv"
+{"config": {
+    "view": {
+      "stroke": null
     },
-    "mark": "line",
+    "background": "transparent"
+  },
+  "title": {
+    "text": "Victorian Gambler Ratio Changes from 2014 to 2019.",
+    "align": "center"
+  },
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 300,
+    "data": {
+        "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_slope_chart.csv"
+    },
+    "mark": {"type":"line", "strokeWidth": 5}, 
     "encoding": {
-      "x": {"field": "Year", "type": "ordinal"},
-      "y": {"field": "Percent", "type": "quantitative"},
-      "color": {"field": "GamblingType"}
+        "x": {
+            "field": "Year",
+            "type": "ordinal",
+            "title": null
+        },
+        "y": {
+            "field": "Percent",
+            "type": "quantitative",
+            "title": "% of Victorians"
+        },
+        "color": {
+            "field": "GamblingType", "legend":{"title": "Type of Gamblers"}
+        },
+        "tooltip": [
+            {
+                "field": "GamblingType",
+                "title": "Type of Gambler"
+            },
+            {
+                "field": "Percent",
+                "title": "% of Victorians Gambling Participation"
+            },
+            {
+                "field": "Change",
+                "title": "Change in Percentage From 2014 to 2019"
+            }
+        ]
     }
-  }
+}

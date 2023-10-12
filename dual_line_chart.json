@@ -1,0 +1,39 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 200,
+    "data": {
+        "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_map_and_bump.csv"
+    },
+    "encoding": {
+        "x": {
+            "field": "Year",
+            "type": "ordinal"
+        }
+    },
+    "layer": [
+        {
+            "mark": "line",
+            "encoding": {
+                "y": {
+                    "aggregate": "average",
+                    "field": "ExpenditurePerAdult"
+                }
+            }
+        },
+        {
+            "mark": "line",
+            "encoding": {
+                "y": {
+                    "aggregate": "average",
+                    "field": "UnemploymentRate"
+                }
+            }
+        }
+    ],
+    "resolve": {
+        "scale": {
+            "y": "independent"
+        }
+    }
+}
