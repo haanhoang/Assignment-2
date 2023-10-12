@@ -1,0 +1,12 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_slope_chart.csv"
+    },
+    "mark": "line",
+    "encoding": {
+      "x": {"field": "Year", "type": "ordinal"},
+      "y": {"field": "Percent", "type": "quantitative"},
+      "color": {"field": "GamblingType"}
+    }
+  }

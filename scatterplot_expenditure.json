@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "height": 350,
-  "title": {"text":"Amount lost by gamblers in each LGA.", "align": "center"},
+  "title": {"text":"Gambling Expenditure in Each LGA Against Venue and Machine Saturation.", "align": "center"},
   "data": {
     "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_map_and_bump.csv"
   },

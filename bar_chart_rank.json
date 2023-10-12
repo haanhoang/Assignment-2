@@ -16,7 +16,7 @@
         {
             "mark": "bar",
             "transform": [{"calculate": "'The average person lost $' + datum['Expenditure'] + ' USD to gambling in ' + datum['Country'] + ' in 2017.'",
-            "as": "tool"}],
+            "as": "note"}],
             "encoding": {
                 "y": {
                     "field": "Country",
@@ -38,7 +38,7 @@
                         "grid": false,
                         "ticks": false
                     }
-                }, "color": {"value": "#6cb964"}, "tooltip": [{"field":"tool"}]
+                }, "color": {"value": "#6cb964"}, "tooltip": [{"field":"note"}]
             }
         }
     ]
