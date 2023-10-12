@@ -3,7 +3,9 @@
     margin: auto;
     text-align: center;
     font-weight: 900; /* Boldest font and responsive font size. */
-    font-size: 2.4vw; 
+    font-size: 3.1vw; 
+    padding: 10px;
+    
 }
 
 #sub-title{
@@ -17,7 +19,7 @@
 #text{
     font-family: 'Gabarito', cursive;
     margin: auto;
-    text-align: center;
+    text-align: left;
     font-weight: 400; /* No weight font and responsive font size. */
     font-size: 1.1vw; 
 }
@@ -44,16 +46,17 @@
     display: table;
     background-color:white ;
     color: black;
-    width: 98%;
-    height: 98%;
+    width: 97%;
+    height: 97%;
     border-radius: 15px;
-    margin-top: 1%;
+    margin-bottom: 2%;
     margin-right: auto;
     margin-left: auto; /* Creates a white block in center of screen that occupies 70% of the space. */
     
 }
 
 .white-block-2{
+    text-align: center;
     background-color:white ;
     color: black;
     width: 90%;

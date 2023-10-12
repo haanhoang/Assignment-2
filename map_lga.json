@@ -2,7 +2,7 @@
     "view": {
       "stroke": null
     },
-    "background": "transparent"
+    "background": "transparent", "legend": {"orient": "bottom", "layout": {"bottom": {"anchor": "middle"}}}
   },
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container",
