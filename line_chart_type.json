@@ -23,18 +23,6 @@
   "data": {
     "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_line_chart_gambling_type.csv"
   },
-  "params": [
-    {
-      "name": "type_highlight",
-      "select": {
-        "type": "point",
-        "fields": [
-          "Type"
-        ]
-      },
-      "bind": "legend"
-    }
-  ],
   "transform": [
     {
       "calculate": "if(datum.Type === 'Machines', 0, if(datum.Type === 'Wagering', 1, if(datum.Type === 'Casino', 3, if(datum.Type === 'Lotteries', 4, if(datum.Type === 'Keno', 5, 6)))))",
@@ -43,6 +31,18 @@
   ],
   "layer": [
     {
+      "params": [
+        {
+          "name": "type_highlight",
+          "select": {
+            "type": "point",
+            "fields": [
+              "Type"
+            ]
+          },
+          "bind": "legend"
+        }
+      ],
       "mark": "area",
       "encoding": {
         "x": {
@@ -94,6 +94,42 @@
           }
         ]
       }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/annotation_data.csv"
+      },
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal"
+        }
+      },
+      "layer": [
+        {
+          "mark": "rule",
+          "encoding": {
+            "x": {
+              "field": "Year"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 2, 
+            "dy": 5,
+            "y": 0
+          },
+          "encoding": {
+            "text": {
+              "field": "Context",
+              "type": "nominal"
+            }
+          }
+        }
+      ]
     }
   ]
 }

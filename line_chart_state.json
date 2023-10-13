@@ -15,7 +15,13 @@
   "data": {
     "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_line_chart_gambling_state.csv"
   },
-  "params": [
+  "transform": [
+    {
+      "calculate": "if(datum.State === 'NSW', 0, if(datum.State === 'VIC', 1, if(datum.State === 'QLD', 2, if(datum.State === 'SA', 3, if(datum.State === 'WA', 4, if(datum.State === 'NT', 5, if(datum.State === 'TAS', 6, 7)))))))",
+      "as": "typeOrder"
+    }
+  ],
+  "layer": [{"params": [
     {
       "name": "state_highlight",
       "select": {
@@ -26,14 +32,7 @@
       },
       "bind": "legend"
     }
-  ],
-  "transform": [
-    {
-      "calculate": "if(datum.State === 'NSW', 0, if(datum.State === 'VIC', 1, if(datum.State === 'QLD', 2, if(datum.State === 'SA', 3, if(datum.State === 'WA', 4, if(datum.State === 'NT', 5, if(datum.State === 'TAS', 6, 7)))))))",
-      "as": "typeOrder"
-    }
-  ],
-  "mark": "area",
+  ],"mark": "area",
   "encoding": {
     "x": {
       "field": "Year",
@@ -71,5 +70,40 @@
       },
       "value": 0.2
     }, "tooltip":[{"field": "State"}, {"field":"Expenditure", "title":"Expenditure (in Million $AUD)", "format":".2f"}]
-  }
+  }}, {
+    "data": {
+      "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/annotation_data.csv"
+    },
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal"
+      }
+    },
+    "layer": [
+      {
+        "mark": "rule",
+        "encoding": {
+          "x": {
+            "field": "Year"
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "dx": 2, 
+          "dy": 5,
+          "y": 0
+        },
+        "encoding": {
+          "text": {
+            "field": "Context",
+            "type": "nominal"
+          }
+        }
+      }
+    ]
+  }]
 }

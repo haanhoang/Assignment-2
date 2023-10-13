@@ -96,7 +96,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['LGA'] == 'Whitehorse'",
+            "test": "datum['LGA'] == 'Whitehorse' || datum['LGA'] == 'Maroondah' || datum['LGA'] == 'Borough Of Queenscliffe'",
             "value": 1
           },
           "value": 0

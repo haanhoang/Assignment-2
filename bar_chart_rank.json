@@ -38,7 +38,7 @@
                         "grid": false,
                         "ticks": false
                     }
-                }, "color": {"value": "#6cb964"}, "tooltip": [{"field":"note"}]
+                }, "color": {"value": "#6cb964"}, "tooltip": [{"field":"note", "title":"Summary"}]
             }
         }
     ]
