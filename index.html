@@ -36,13 +36,25 @@
 
         <div class="white-block">
             <div id="dual-container">
-                <div class="left">
-                    <div id="text">Australia is the world's biggest loser in gambling losses. In 2017, it ranked first in the world for the amount of money lost through gambling (Statista, 2017).</div>
-                    <div id="text"><br>One of the most important indicator of tracking how prominent gambling is by analysing a demographics' gambling expenditure per capita.</div>
-                    <div id="text"><br>Gambling expenditure refers to the net loss of a gambler or net profit for the house over a fiscal year.</div>
-                    <div id="text"><br>The following visualisation aims to evaluate Australia's gambling tendencies with a focus on Victoria.</div>
-                </div>    
-                <div class="right" id="rank_country"></div> 
+                <div class="left-column">
+                    <div class="left-box">
+                        <div id="text">Australia is the world's biggest loser in gambling losses. In 2017, it ranked
+                            first in the world for the amount of money lost through gambling.</div>
+                        <div id="text"><br>One of the most important indicator of tracking how prominent gambling is, is by
+                            analysing a demographics' gambling expenditure per capita.</div>
+                        <div id="text"><br>Gambling expenditure refers to the net loss of a gambler or net profit for
+                            the house over a fiscal year.</div>
+                        <div id="text"><br>The following visualisation aims to evaluate Australia's gambling tendencies
+                            with a focus on Victoria.</div>
+                            <div id="text" style="color: grey; font-size: 0.5vw;">
+                                <br>Click on legend of stacked area chart and scatterplot to highlight values.
+                            </div>
+                    </div>
+                </div>
+
+
+                <div class="right" id="rank_country"></div>
+
             </div>
         </div>
 
@@ -50,37 +62,117 @@
         <div class="white-block">
             <div id="sub-title">Overview of Australia</div>
 
-            <div id="text"><br>ANNOTATIONS HERE</div>
-            <div class="white-block-2"><div style="display: block;" id="line_state"></div></div>
-            <div id="text"><br>ANNOTATIONS HERE</div>
-            <div class="white-block-2"><div style="display: block;" id="line_type"></div></div>
-            
+
+            <div id="text-center"><br><br>Over time, Australia's gambling expenditure per capita has consistenly</div>
+            <div id="text-center"> risen as the years go by. The only exception to this </div>
+            <div id="text-center">growth was when COVID-19 lockdown was implemented which</div>
+            <div id="text-center">caused venues to be closed. It has since recovered.</div>
+    
+            <div class="white-block-2">
+                <div style="display: block;" id="line_state"></div>
+            </div>
+
+
+            <div id="text-center"><br><br>Methods of gambling can come in many shapes and form.</div>
+            <div id="text-center">Gaming Machines such as slot machines commonly available</div>
+            <div id="text-center">at locations such as clubs, pubs and casinos have dominated</div>
+            <div id="text-center">the Australian market due to ease of use and availability.</div>
+            <div class="white-block-2">
+                <div style="display: block;" id="line_type"></div>
+            </div>
+
         </div>
         <div class="white-block">
             <div id="sub-title">Where do we stand?</div>
-            
-            
-            <div id="text"><br>ANNOTATIONS HERE</div>
-            <div class="white-block-2"><div style="display: block;" id="map_lga"></div></div>
-            <div id="text"><br>ANNOTATIONS HERE</div>
-            <div class="white-block-2"><div style="display: block;" id="scatterplot_expenditure"></div></div>
-            <div class="left" id="dual_line_chart"></div> 
-            <div class="right" id="slope_chart"></div> 
+
+
+            <div id="text-center"><br><br>Victoria is the second highest state in gambling expenditure</div>
+            <div id="text-center">per capita in Australia. Below is a breakdown of average </div>
+            <div id="text-center">expenditure across different council regions (LGA). Based on </div>
+            <div id="text-center">the data, the closer you are to the middle or outer edges </div>
+            <div id="text-center">of Victoria then the higher the expenditure.</div>
+            <div class="white-block-2">
+                <div style="display: block;" id="map_lga"></div>
+            </div>
+
+
+            <div id="text-center"><br><br>There are various factors which could influence the expenditure</div>
+            <div id="text-center">of a region. As seen below, there is an inverse relationship</div>
+            <div id="text-center">between number of adults per venue, which shows how</div>
+            <div id="text-center">saturated the venue in an LGA is, and the number of</div>
+            <div id="text-center">machines available. So an LGA with venues less saturated</div>
+            <div id="text-center">and higher machine count leads to higher expenditure.</div>
+            <div class="white-block-2">
+                <div style="display: block;" id="scatterplot_expenditure"></div>
+            </div>
+
+
+            <div>
+                <div class="dual-container">
+                    <div class="left-column">
+                        <div class="left-box" id="text"><br><br>Period of high unemployment could potentially affect
+                            gambling tendencies. As seen below, an increase in unemployment rate drastically decreased
+                            gambling expenditure. <br></div>
+                    </div>
+                    <div class="right-column">
+                        <div class="left-box" id="text"><br><br>From 2014 to 2019, there has been a slight increase in
+                            people choosing to not gamble. Overall, there is no significant changes in gambler type.
+                            <br></div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="left" id="dual_line_chart"></div>
+                <div class="right" id="slope_chart"></div>
+            </div>
+
 
 
         </div>
+
+
+
         <div class="white-block">
             <div style="display: block;" id="sub-title">Public Perception of Gambling</div>
-            <div class="left" id="pie_1"></div> 
-            <div class="right" id="pie_2"></div> 
+
+
+
+            <div>
+                <div class="dual-container">
+                    <div class="left-column">
+                        <div class="left-box" id="text"><br><br>According to a survey on what people think of gambling
+                            collected by the Victorian Government, about a quarter believe that gambling is unacceptable
+                            regardless of how much is spent.</div>
+                    </div>
+                    <div class="right-column">
+                        <div class="left-box" id="text"><br><br>In the same survey, roughly 73% believe that adolescents
+                            are being over exposed to gambling materials. This suggests that gambling is normalised in
+                            Victoria, but people are still concerned.</div>
+                    </div>
+                </div>
+            </div>
+            <div id="dual-container">
+                <div class="left" id="pie_1"></div>
+                <div class="right" id="pie_2"></div>
+            </div>
         </div>
 
 
         <div id="reference">Visualisation by: Ha An Hoang 30620090</div>
-        <div id="reference">Data from: <a href="https://www.qgso.qld.gov.au/statistics/theme/society/gambling/australian-gambling-statistics" target="_blank">QGFO</a>, <a href="https://responsiblegambling.vic.gov.au/resources/gambling-victoria/expenditure-on-gambling-victoria-and-australia/" target="_blank">VRGF</a>, <a href="https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/1270.0.55.001July%202016?OpenDocument" target="_blank">ABS</a>, <a href="https://www.statista.com/statistics/552821/gambling-losses-per-adult-by-country-worldwide/" target="_blank">Statista</a>, <a href="https://discover.data.vic.gov.au/dataset/" target="_blank">Data VIC</a></div>
+        <div id="reference">Data from: <a
+                href="https://www.qgso.qld.gov.au/statistics/theme/society/gambling/australian-gambling-statistics"
+                target="_blank">QGFO</a>, <a
+                href="https://responsiblegambling.vic.gov.au/resources/gambling-victoria/expenditure-on-gambling-victoria-and-australia/"
+                target="_blank">VRGF</a>, <a
+                href="https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/1270.0.55.001July%202016?OpenDocument"
+                target="_blank">ABS</a>, <a
+                href="https://www.statista.com/statistics/552821/gambling-losses-per-adult-by-country-worldwide/"
+                target="_blank">Statista</a>, <a href="https://discover.data.vic.gov.au/dataset/" target="_blank">Data
+                VIC</a></div>
     </div>
 
-    
+
 
 </body>
 

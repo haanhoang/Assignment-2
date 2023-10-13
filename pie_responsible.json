@@ -19,7 +19,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/pie_data_1.csv"
   },
-  "layer": [{"mark": {
+  "mark": {
     "type": "arc"
   },
   "encoding": {
@@ -29,8 +29,8 @@
       "stack": "normalize"
     },
     "color": {
-      "field": "Type",
+      "field": "Type","legend":{"title": "Survey Response (%)"}, 
       "type": "nominal", "scale":{"domain": ["$0", "$1-$10", "$11-$20", "$21-$50", "More than $50"], "range":["#332288", "#117733", "#44aa99", "#999933", "#aa4499"]}
-    }
-  }}]
+    }, "tooltip": {"field": "Percent", "title": "Percentage"}
+  }
 }

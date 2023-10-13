@@ -3,7 +3,7 @@
     margin: auto;
     text-align: center;
     font-weight: 900; /* Boldest font and responsive font size. */
-    font-size: 3.1vw; 
+    font-size: 3.4vw; 
     padding: 10px;
     
 }
@@ -13,15 +13,14 @@
     margin: auto;
     text-align: center;
     font-weight: 600; /* Medium boldness font and responsive font size. */
-    font-size: 1.9vw; 
+    font-size: 2.4vw; 
 }
 
 #text{
     font-family: 'Gabarito', cursive;
-    margin: auto;
     text-align: left;
     font-weight: 400; /* No weight font and responsive font size. */
-    font-size: 1.1vw; 
+    font-size: 1vw; 
 }
 
 #reference{
@@ -68,18 +67,42 @@
     
 }
 
-.left{
-    margin-left: 5%;
-    padding: 1%;
-    width: 44%;
+.left-column{
+    width: 50%;
     float: left;
 }
 
-.right{
-    margin-right: 5%;
-    padding: 1%;
-    width: 44%;
+.right-column{
+    width: 50%;
     float: right;
 }
 
+.left-box{
+    padding-left: 10%;
+}
+
+.right-box{
+   width: 90%;
+}
+
+.left{
+    width: 50%;
+    float: left;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.right{
+    width: 50%;
+    float: right;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#text-center{
+    font-family: 'Gabarito', cursive;
+    text-align: center;
+    font-weight: 400; /* No weight font and responsive font size. */
+    font-size: 1vw; 
+}
 
