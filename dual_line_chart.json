@@ -1,14 +1,14 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container",
-    "height": 200,
+    "height": 300,
     "data": {
         "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_map_and_bump.csv"
     },
     "encoding": {
         "x": {
             "field": "Year",
-            "type": "ordinal"
+            "type": "ordinal", "title": null
         }
     },
     "layer": [
@@ -17,8 +17,8 @@
             "encoding": {
                 "y": {
                     "aggregate": "average",
-                    "field": "ExpenditurePerAdult"
-                }
+                    "field": "ExpenditurePerAdult", "axis":{"title": "Average Expenditure per Capita ($AUD)"}
+                }, "tooltip":[{"aggregate":"average","field":"ExpenditurePerAdult", "title":"Average Expenditure per Capita ($AUD)", "format":".2f"}, {"field":"Year"}]
             }
         },
         {
@@ -26,11 +26,11 @@
             "encoding": {
                 "y": {
                     "aggregate": "average",
-                    "field": "UnemploymentRate"
-                }
+                    "field": "UnemploymentRate", "axis":{"title": "Average Unemployment Rate (%)"}
+                }, "tooltip":[{"aggregate":"average","field":"UnemploymentRate", "title":"Average Unemployment Rate (%)", "format":".2f"}, {"field":"Year"}]
             }
         }
-    ],
+    ], 
     "resolve": {
         "scale": {
             "y": "independent"

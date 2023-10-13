@@ -33,9 +33,9 @@
     "x": {
       "field": "NumberOfMachinePer1000Adults",
       "type": "quantitative",
-      "title": "Number of gaming machines per 1000 adults"
+      "title": "Number of Gaming Machines per 1000 Adults"
     },
-    "y": {"field": "AdultsPerVenue", "type": "quantitative"}
+    "y": {"field": "AdultsPerVenue", "type": "quantitative", "title": "Number of Adults per Venue"}
   },
   "layer": [
     {
@@ -55,23 +55,23 @@
           "value": 0.2
         },
         "tooltip": [
-          {"field": "LGA", "type": "nominal", "title": "LGA Name"},
+          {"field": "LGA", "type": "nominal", "title": "Local Government Area"},
           {
             "field": "ExpenditurePerAdult",
             "type": "quantitative",
-            "title": "$ Gambled per Adult",
+            "title": "Expenditure per Adult ($AUD)",
             "format": ".2f"
           },
           {
             "field": "NumberOfMachinePer1000Adults",
             "type": "quantitative",
-            "title": "Number of machine per 1000 adults",
+            "title": "Number of Machine per 1000 Adults",
             "format": ".2f"
           },
           {
             "field": "AdultsPerVenue",
             "type": "quantitative",
-            "title": "Adults per venue",
+            "title": "Adults per Venue",
             "format": ".2f"
           },
           {
@@ -102,23 +102,23 @@
           "value": 0
         },
         "tooltip": [
-          {"field": "LGA", "type": "nominal", "title": "LGA Name"},
+          {"field": "LGA", "type": "nominal", "title": "Local Government Area"},
           {
             "field": "ExpenditurePerAdult",
             "type": "quantitative",
-            "title": "$ Gambled per Adult",
+            "title": "Expenditure per Adult ($AUD)",
             "format": ".2f"
           },
           {
             "field": "NumberOfMachinePer1000Adults",
             "type": "quantitative",
-            "title": "Number of machine per 1000 adults",
+            "title": "Number of Machine per 1000 Adults",
             "format": ".2f"
           },
           {
             "field": "AdultsPerVenue",
             "type": "quantitative",
-            "title": "Adults per venue",
+            "title": "Adults per Venue",
             "format": ".2f"
           },
           {

@@ -3,7 +3,15 @@
     "view": {
       "stroke": null
     },
-    "background": "transparent", "legend": {"orient": "bottom", "layout": {"bottom": {"anchor": "middle"}}}
+    "background": "transparent",
+    "legend": {
+      "orient": "bottom",
+      "layout": {
+        "bottom": {
+          "anchor": "middle"
+        }
+      }
+    }
   },
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
@@ -33,40 +41,59 @@
       "as": "typeOrder"
     }
   ],
-  "mark": "area",
-  "encoding": {
-    "x": {
-      "field": "Year",
-      "type": "ordinal",
-      "axis": {
-          "domain": false,
-          "grid": false,
-          "ticks": false
-      }, "title":null
-    },
-    "y": {
-      "aggregate": "sum",
-      "field": "Expenditure",
-      "type": "quantitative",
-      "title":"Expenditure (in Million $AUD)",
-      "axis": {
-          "domain": false,
-          "grid": false,
-          "ticks": false
+  "layer": [
+    {
+      "mark": "area",
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "axis": {
+            "domain": false,
+            "grid": false,
+            "ticks": false
+          },
+          "title": null
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "Expenditure",
+          "type": "quantitative",
+          "title": "Expenditure (in Million $AUD)",
+          "axis": {
+            "domain": false,
+            "grid": false,
+            "ticks": false
+          }
+        },
+        "color": {
+          "field": "Type",
+          "scale": {
+            "scheme": "turbo"
+          }
+        },
+        "order": {
+          "field": "typeOrder"
+        },
+        "opacity": {
+          "condition": {
+            "param": "type_highlight",
+            "value": 1
+          },
+          "value": 0.2
+        },
+        "tooltip": [
+          {
+            "field": "Type",
+            "title": "Gambling Type"
+          },
+          {
+            "field": "Expenditure",
+            "title": "Expenditure (in Million $AUD)",
+            "format": ".2f"
+          }
+        ]
       }
-    },
-    "color": {
-      "field": "Type", "scale":{"scheme":"turbo"}
-    },
-    "order": {
-      "field": "typeOrder"
-    },
-    "opacity": {
-      "condition": {
-        "param": "type_highlight",
-        "value": 1
-      },
-      "value": 0.2
-    }, "tooltip":[{"field": "Type", "title":"Gambling Type"}, {"field":"Expenditure", "title":"Expenditure (in Million $AUD)", "format":".2f"}]
-  }
+    }
+  ]
 }

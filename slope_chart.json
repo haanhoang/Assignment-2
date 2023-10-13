@@ -14,7 +14,7 @@
     "data": {
         "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_slope_chart.csv"
     },
-    "mark": {"type":"line", "strokeWidth": 5}, 
+    "mark": {"type":"line", "strokeWidth": 3, "point":true}, 
     "encoding": {
         "x": {
             "field": "Year",
