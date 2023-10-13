@@ -56,9 +56,7 @@
     },
     "color": {
       "field": "State",
-      "scale": {
-        "scheme": "sinebow"
-      }
+      "scale":{"domain": ["ACT", "NSW", "NT", "QLD", "SA", "TAS", "VIC", "WA"], "range":["#4477aa", "#ee6677", "#ee3377", "#ccbb44", "#66ccee", "#882255", "#bbbbbb", "#009988"]}
     },
     "order": {
       "field": "typeOrder"

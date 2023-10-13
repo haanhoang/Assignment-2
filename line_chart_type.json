@@ -68,9 +68,7 @@
         },
         "color": {
           "field": "Type",
-          "scale": {
-            "scheme": "turbo"
-          }
+      "scale":{"domain": ["Casino", "Interactive", "Keno", "Lotteries", "Machines", "Minor Gaming", "Wagering"], "range":["#77aadd", "#000000", "#eedd88", "#ffaabb", "#99ddff", "#44bb99", "#bbcc33"]}
         },
         "order": {
           "field": "typeOrder"

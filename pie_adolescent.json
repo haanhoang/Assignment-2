@@ -1,0 +1,36 @@
+{
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "background": "transparent",
+    "legend": {
+      "orient": "bottom",
+      "layout": {
+        "bottom": {
+          "anchor": "middle"
+        }
+      }
+    }
+  },
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width":"container",
+  "height":200,
+  "data": {
+    "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/pie_data.csv"
+  },
+  "mark": {
+    "type": "arc"
+  },
+  "encoding": {
+    "theta": {
+      "field": "Percent",
+      "type": "quantitative",
+      "stack": "normalize"
+    },
+    "color": {
+      "field": "Type",
+      "type": "nominal", "scale":{"domain": ["Adolescents are exposed to too much gambling.", "Adolescents are not exposed to too much gambling."], "range":["#c00000", "#005ab2"]}
+    }
+  }
+}

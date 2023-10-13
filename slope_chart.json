@@ -27,7 +27,7 @@
             "title": "% of Victorians"
         },
         "color": {
-            "field": "GamblingType", "legend":{"title": "Type of Gamblers"}
+            "field": "GamblingType", "legend":{"title": "Type of Gamblers"}, "scale":{"domain": ["Low-risk Gambling", "Moderate-risk Gambling", "Non-gambler", "Non-problem Gambling", "Problem Gambling"], "range":["#D55E00", "#009E73", "#E69F00", "#56B4E9", "#0072B2"]}
         },
         "tooltip": [
             {

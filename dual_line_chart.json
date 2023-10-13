@@ -4,7 +4,7 @@
     "height": 300,
     "data": {
         "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_map_and_bump.csv"
-    },
+    }, "title":"Average Expenditure vs Average Unemployment Rate of Victoria.",
     "encoding": {
         "x": {
             "field": "Year",
@@ -18,7 +18,7 @@
                 "y": {
                     "aggregate": "average",
                     "field": "ExpenditurePerAdult", "axis":{"title": "Average Expenditure per Capita ($AUD)"}
-                }, "tooltip":[{"aggregate":"average","field":"ExpenditurePerAdult", "title":"Average Expenditure per Capita ($AUD)", "format":".2f"}, {"field":"Year"}]
+                }, "color":{"value":"#44bb99"}, "tooltip":[{"aggregate":"average","field":"ExpenditurePerAdult", "title":"Average Expenditure per Capita ($AUD)", "format":".2f"}, {"field":"Year"}]
             }
         },
         {
@@ -27,7 +27,7 @@
                 "y": {
                     "aggregate": "average",
                     "field": "UnemploymentRate", "axis":{"title": "Average Unemployment Rate (%)"}
-                }, "tooltip":[{"aggregate":"average","field":"UnemploymentRate", "title":"Average Unemployment Rate (%)", "format":".2f"}, {"field":"Year"}]
+                }, "color":{"value":"#6699cc"}, "tooltip":[{"aggregate":"average","field":"UnemploymentRate", "title":"Average Unemployment Rate (%)", "format":".2f"}, {"field":"Year"}]
             }
         }
     ], 
