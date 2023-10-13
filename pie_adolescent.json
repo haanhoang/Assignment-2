@@ -10,7 +10,7 @@
         "bottom": {
           "anchor": "middle"
         }
-      }
+      }, "labelOverlap":
     }
   },
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -30,7 +30,7 @@
     },
     "color": {
       "field": "Type",
-      "type": "nominal", "scale":{"domain": ["Adolescents are exposed to too much gambling.", "Adolescents are not exposed to too much gambling."], "range":["#c00000", "#005ab2"]}
+      "type": "nominal", "scale":{"domain": ["Too much exposure", "Sufficient exposure"], "range":["#c00000", "#005ab2"]}
     }
   }
 }
