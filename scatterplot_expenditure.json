@@ -59,7 +59,7 @@
           {
             "field": "ExpenditurePerAdult",
             "type": "quantitative",
-            "title": "Expenditure per Adult ($AUD)",
+            "title": "Expenditure per Capita ($AUD)",
             "format": ".2f"
           },
           {
@@ -106,7 +106,7 @@
           {
             "field": "ExpenditurePerAdult",
             "type": "quantitative",
-            "title": "Expenditure per Adult ($AUD)",
+            "title": "Expenditure per Capita ($AUD)",
             "format": ".2f"
           },
           {

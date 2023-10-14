@@ -96,7 +96,7 @@
                     },
                     {
                         "field": "tool",
-                        "title": "$ Lost per Adult"
+                        "title": "$ Lost per Capita"
                     }
                 ]
             }
@@ -156,7 +156,7 @@
                     },
                     {
                         "field": "ExpenditurePerAdult",
-                        "title": "Expenditure per Adult ($AUD)",
+                        "title": "Expenditure per Capita ($AUD)",
                         "format": ".2f"
                     }
                 ]
