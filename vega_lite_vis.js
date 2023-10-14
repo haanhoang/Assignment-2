@@ -10,12 +10,12 @@ var pie_1 = "pie_responsible.json";
 var pie_2 = "pie_adolescent.json";
 
 vegaEmbed("#rank_country", rank_country).then(function(result) {}).catch(console.error);
-vegaEmbed("#line_state", line_state).then(function(result) {}).catch(console.error);
-vegaEmbed("#line_type", line_type).then(function(result) {}).catch(console.error);
-vegaEmbed("#scatterplot_expenditure", scatterplot_expenditure).then(function(result) {}).catch(console.error);
-vegaEmbed("#map_lga", map_lga).then(function(result) {}).catch(console.error);
+vegaEmbed("#line_state", line_state, {"actions": false}).then(function(result) {}).catch(console.error);
+vegaEmbed("#line_type", line_type, {"actions": false}).then(function(result) {}).catch(console.error);
+vegaEmbed("#scatterplot_expenditure", scatterplot_expenditure, {"actions": false}).then(function(result) {}).catch(console.error);
+vegaEmbed("#map_lga", map_lga, {"actions": false}).then(function(result) {}).catch(console.error);
 //vegaEmbed("#scatterplot_map_combined", scatterplot_map_combined).then(function(result) {}).catch(console.error);
 vegaEmbed("#slope_chart", slope_chart).then(function(result) {}).catch(console.error);
 vegaEmbed("#dual_line_chart", dual_line_chart).then(function(result) {}).catch(console.error);
-vegaEmbed("#pie_1", pie_1).then(function(result) {}).catch(console.error);
-vegaEmbed("#pie_2", pie_2).then(function(result) {}).catch(console.error);
+vegaEmbed("#pie_1", pie_1, {"actions": false}).then(function(result) {}).catch(console.error);
+vegaEmbed("#pie_2", pie_2, {"actions": false}).then(function(result) {}).catch(console.error);

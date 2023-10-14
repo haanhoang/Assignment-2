@@ -106,3 +106,9 @@
     font-size: 1vw; 
 }
 
+
+.center-text-box{
+    width: 43%;
+    padding-left: 28.5%;
+    padding-right: 28.5%;
+}
