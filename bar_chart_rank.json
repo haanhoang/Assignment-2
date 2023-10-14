@@ -1,45 +1,65 @@
 {
-    "config": {
-        "view": {
-            "stroke": null
-        },
-        "background": "transparent"
-    },
+    "config": {"view": {"stroke": null}, "background": "transparent", "legend": {"disable": true}}, 
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container",
     "height": 350,
-    "title": {"text": "Top Gambling Expenditure by Country in 2017.", "align": "center"},
-    "data": {
-        "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_bar_chart_rank.csv"
+    "title": {
+      "text": "Top Gambling Expenditure by Country in 2017.",
+      "align": "center"
     },
-    "layer": [
-        {
-            "mark": "bar",
-            "transform": [{"calculate": "'The average person lost $' + datum['Expenditure'] + ' USD to gambling in ' + datum['Country'] + ' in 2017.'",
-            "as": "note"}],
-            "encoding": {
-                "y": {
-                    "field": "Country",
-                    "type": "nominal",
-                    "sort": "-x",
-                    "title": null,
-                    "axis": {
-                        "domain": false,
-                        "grid": false,
-                        "ticks": false
-                    }
-                },
-                "x": {
-                    "field": "Expenditure",
-                    "type": "quantitative",
-                    "title": "Expenditure per capita (in $USD)",
-                    "axis": {
-                        "domain": false,
-                        "grid": false,
-                        "ticks": false
-                    }
-                }, "color": {"value": "#6cb964"}, "tooltip": [{"field":"note", "title":"Summary"}]
-            }
+    "data": {
+      "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/data_bar_chart_rank.csv"
+    },
+    "mark": {"type": "bar"},
+    "transform": [
+      {
+        "calculate": "'The average person lost $' + datum['Expenditure'] + ' USD to gambling in ' + datum['Country'] + ' in 2017.'",
+        "as": "note"
+      }
+    ],
+    "encoding": {
+      "y": {
+        "field": "Country",
+        "type": "nominal",
+        "sort": "-x",
+        "title": null,
+        "axis": {"domain": false, "grid": false, "ticks": false}
+      },
+      "x": {
+        "field": "Expenditure",
+        "type": "quantitative",
+        "title": "Expenditure per capita (in $USD)",
+        "axis": {"domain": false, "grid": false, "ticks": false}
+      },
+      "color": {
+        "field": "Country",
+        "scale": {
+          "domain": [
+            "Australia",
+            "Hong Kong",
+            "Singapore ",
+            "Finland ",
+            "New Zealand",
+            "Japan",
+            "Ireland",
+            "Norway",
+            "United States ",
+            "Canada "
+          ],
+          "range": [
+            "#6cb964",
+            "#808080",
+            "#808080",
+            "#808080",
+            "#808080",
+            "#808080",
+            "#808080",
+            "#808080",
+            "#808080",
+            "#808080"
+          ]
         }
-    ]
-}
+      },
+      "tooltip": [{"field": "note", "title": "Summary"}]
+    }
+  }
