@@ -48,7 +48,7 @@
       ],
       "mark": "circle",
       "encoding": {
-        "size": {"field": "ExpenditurePerAdult", "type": "quantitative", "scale":{"domain":[100, 1000]}},
+        "size": {"field": "ExpenditurePerAdult", "type": "quantitative", "scale":{"domain":[100, 1000]}, "legend":{"title": "Expenditure per Capita ($AUD)"}},
         "color": {"field": "Region", "type": "nominal", "scale":{"domain": ["Metro", "Country"], "range":["#2e78a6", "#f2ab27"]}},
         "opacity": {
           "condition": {"param": "region_highlight", "value": 1},
