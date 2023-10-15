@@ -110,7 +110,7 @@
                     "lookup": "LGA",
                     "from": {
                         "data": {
-                            "url": "https://raw.githubusercontent.com/haanhoang/FIT3179_Studio/main/vic_lga.json",
+                            "url": "https://raw.githubusercontent.com/haanhoang/Assignment-2/main/Data/mapData/vic_lga.json",
                             "format": {
                                 "type": "topojson",
                                 "feature": "vic_lga"
